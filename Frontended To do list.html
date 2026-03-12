@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Daily To-Do List</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.container{
+
+width:380px;
+padding:25px;
+border-radius:15px;
+
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+color:white;
+}
+
+h1{
+text-align:center;
+margin-bottom:15px;
+}
+
+.date{
+margin-bottom:15px;
+}
+
+input[type="date"]{
+width:100%;
+padding:8px;
+border:none;
+border-radius:6px;
+}
+
+.task-list{
+margin-top:10px;
+margin-bottom:15px;
+}
+
+.task{
+display:flex;
+align-items:center;
+margin:8px 0;
+background:rgba(255,255,255,0.15);
+padding:8px;
+border-radius:6px;
+transition:0.3s;
+}
+
+.task:hover{
+background:rgba(255,255,255,0.3);
+}
+
+.task span{
+margin-left:10px;
+flex:1;
+}
+
+.done{
+text-decoration:line-through;
+opacity:0.6;
+}
+
+.add-section{
+display:flex;
+gap:5px;
+}
+
+#newTask{
+flex:1;
+padding:8px;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:8px 12px;
+border:none;
+border-radius:6px;
+background:#00ffae;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#00d494;
+}
+
+.progress{
+margin-top:15px;
+}
+
+.progress-bar{
+height:10px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:#00ffae;
+transition:0.4s;
+}
+
+.footer{
+text-align:center;
+font-size:12px;
+margin-top:10px;
+opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>✨ My Smart To-Do List</h1>
+
+<div class="date">
+<label>Select Date</label>
+<input type="date">
+</div>
+
+<div class="task-list" id="taskList">
+
+<div class="task">
+<input type="checkbox" onclick="completeTask(this)">
+<span>Wake up early</span>
+</div>
+
+<div class="task">
+<input type="checkbox" onclick="completeTask(this)">
+<span>Exercise</span>
+</div>
+
+<div class="task">
+<input type="checkbox" onclick="completeTask(this)">
+<span>Study / Work</span>
+</div>
+
+<div class="task">
+<input type="checkbox" onclick="completeTask(this)">
+<span>Complete assignments</span>
+</div>
+
+<div class="task">
+<input type="checkbox" onclick="completeTask(this)">
+<span>Read a book</span>
+</div>
+
+</div>
+
+<div class="add-section">
+<input type="text" id="newTask" placeholder="Add new task...">
+<button onclick="addTask()">Add</button>
+</div>
+
+<div class="progress">
+<p>Daily Progress</p>
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+</div>
+
+<div class="footer">
+Stay productive 🚀
+</div>
+
+</div>
+
+<script>
+
+function completeTask(box){
+
+let text = box.nextElementSibling;
+
+if(box.checked){
+text.classList.add("done");
+}else{
+text.classList.remove("done");
+}
+
+updateProgress();
+
+}
+
+function addTask(){
+
+let taskText = document.getElementById("newTask").value;
+
+if(taskText===""){
+alert("Please enter a task");
+return;
+}
+
+let list=document.getElementById("taskList");
+
+let div=document.createElement("div");
+div.className="task";
+
+div.innerHTML='<input type="checkbox" onclick="completeTask(this)"> <span>'+taskText+'</span>';
+
+list.appendChild(div);
+
+document.getElementById("newTask").value="";
+
+}
+
+function updateProgress(){
+
+let tasks=document.querySelectorAll(".task input");
+
+let total=tasks.length;
+let done=0;
+
+tasks.forEach(t=>{
+if(t.checked) done++;
+});
+
+let percent=(done/total)*100;
+
+document.getElementById("progressFill").style.width=percent+"%";
+
+}
+
+</script>
+
+</body>
+</html>
