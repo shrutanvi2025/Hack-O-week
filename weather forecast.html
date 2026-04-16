@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3 City Weather Forecast</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #36d1dc, #5b86e5);
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 20px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px;
+        flex-wrap: wrap;
+    }
+
+    .city-card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 15px;
+        width: 250px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .city-name {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .day {
+        background: rgba(255,255,255,0.2);
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .day h3 {
+        margin: 5px 0;
+    }
+
+    .temp {
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Weather Forecast</h1>
+
+<div class="container">
+
+    <!-- City 1 -->
+    <div class="city-card">
+        <div class="city-name">Pune</div>
+
+        <div class="day">
+            <h3>Yesterday</h3>
+            <div class="temp">27°C</div>
+            <p>Cloudy</p>
+        </div>
+
+        <div class="day">
+            <h3>Today</h3>
+            <div class="temp">29°C</div>
+            <p>Sunny</p>
+        </div>
+
+        <div class="day">
+            <h3>Tomorrow</h3>
+            <div class="temp">30°C</div>
+            <p>Clear</p>
+        </div>
+    </div>
+
+    <!-- City 2 -->
+    <div class="city-card">
+        <div class="city-name">Mumbai</div>
+
+        <div class="day">
+            <h3>Yesterday</h3>
+            <div class="temp">30°C</div>
+            <p>Humid</p>
+        </div>
+
+        <div class="day">
+            <h3>Today</h3>
+            <div class="temp">32°C</div>
+            <p>Sunny</p>
+        </div>
+
+        <div class="day">
+            <h3>Tomorrow</h3>
+            <div class="temp">31°C</div>
+            <p>Rainy</p>
+        </div>
+    </div>
+
+    <!-- City 3 -->
+    <div class="city-card">
+        <div class="city-name">Delhi</div>
+
+        <div class="day">
+            <h3>Yesterday</h3>
+            <div class="temp">25°C</div>
+            <p>Hazy</p>
+        </div>
+
+        <div class="day">
+            <h3>Today</h3>
+            <div class="temp">28°C</div>
+            <p>Sunny</p>
+        </div>
+
+        <div class="day">
+            <h3>Tomorrow</h3>
+            <div class="temp">29°C</div>
+            <p>Partly Cloudy</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
